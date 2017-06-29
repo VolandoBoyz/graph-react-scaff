@@ -1,35 +1,40 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
-import ReduxThunk from 'redux-thunk';
-import { reducer as formReducer } from 'redux-form';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom';
 
-import App from './App';
-import fire from './modules/fire';
+import 'normalize.css';
+import { ROUTES } from './settings';
+import Home from './routes/home';
+import Fire from './routes/fire';
+import Navbar from './components/Navbar';
 
-const enhancers = [];
-// redux devTools
-const devToolsExtension = window.devToolsExtension;
-if (typeof devToolsExtension === 'function') {
-  enhancers.push(devToolsExtension());
-}
+const App = props =>
+  <Router>
+    <div className={`${props.className} app-container`}>
+      <Navbar />
+      <Switch>
+        <Route exact path={ROUTES.home} component={Home} />
+        <Route path={ROUTES.fire} component={Fire} />
+        <Route component={Home} />
+      </Switch>
+    </div>
+  </Router>;
 
-const makeRootReducer = asyncReducers => combineReducers({
-  fire,
-  forms: formReducer,
-  ...asyncReducers,
-});
+const AppStyled = styled(App)`
+  font-family: helvetica;
+  height: 100%;
+`;
 
-const store = createStore(
-  makeRootReducer(),
-  {},
-  compose(applyMiddleware(ReduxThunk), ...enhancers)
-);
-
+App.propTypes = {
+  className: PropTypes.string.isRequired,
+};
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>
+  <AppStyled />
   , document.getElementById('root'));

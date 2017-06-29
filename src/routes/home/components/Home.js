@@ -4,9 +4,8 @@ import PropTypes from 'prop-types';
 
 const Home = props =>
   <section className={`${props.className} home-route`}>
-    <h1>Welcome to react-redux-hot</h1>
+    <h1>Welcome to GraphQL-React Scaffolding</h1>
     <h2>🤘🏻</h2>
-    <a href='https://github.com/Influencity/react-redux-hot'>View souce code</a>
   </section>;
 
 const HomeStyled = styled(Home)`
