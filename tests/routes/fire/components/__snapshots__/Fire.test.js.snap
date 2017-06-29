@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fire 1`] = `
+<section
+  className="gbQwjE fire-container"
+>
+  <section
+    className="image-container"
+  >
+    <img
+      alt="fire emoji"
+      src="test-file-stub"
+    />
+  </section>
+  <section
+    className="action-buttons"
+  >
+    <button
+      className="hDNYrD"
+      onClick={[Function]}
+    >
+      Increment
+    </button>
+    <button
+      className="hDNYrD"
+      onClick={[Function]}
+    >
+      Decrease
+    </button>
+  </section>
+</section>
+`;
