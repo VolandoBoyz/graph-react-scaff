@@ -2,7 +2,7 @@ import React from 'react';
 import Bundle from '../../components/Bundle';
 import Loading from '../../components/Loading';
 // Import LoaderFire when is used
-import LoadFire from 'bundle-loader?lazy&name=[name]!./components/Fire.js';
+import LoadFire from 'bundle-loader?lazy&name=[name]!./components/Songs.js';
 
 
 export default () =>

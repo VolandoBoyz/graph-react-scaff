@@ -15,7 +15,7 @@ import 'normalize.css';
 import { ROUTES } from './settings';
 import Navbar from './components/Navbar';
 import Home from './routes/home';
-import Fire from './routes/fire';
+import Songs from './routes/songs';
 
 const networkInterface = createNetworkInterface({
   uri: 'http://localhost:4000/graphql',
@@ -31,7 +31,7 @@ const App = props =>
       <div className={`${props.className} app-container`}>
         <Navbar />
         <Switch>
-          <Route path={ROUTES.songs} component={Fire} />
+          <Route path={ROUTES.songs} component={Songs} />
           <Route component={Home} />
         </Switch>
       </div>
