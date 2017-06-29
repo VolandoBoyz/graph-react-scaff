@@ -31,7 +31,7 @@ const App = props =>
       <div className={`${props.className} app-container`}>
         <Navbar />
         <Switch>
-          <Route path={ROUTES.fire} component={Fire} />
+          <Route path={ROUTES.songs} component={Fire} />
           <Route component={Home} />
         </Switch>
       </div>

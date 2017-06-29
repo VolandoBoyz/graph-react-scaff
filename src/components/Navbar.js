@@ -7,7 +7,7 @@ import { ROUTES } from '../settings';
 const Navbar = props =>
   <ul className={`${props.className} navbar`}>
     <li><Link to={ROUTES.home}>Home</Link></li>
-    <li><Link to={ROUTES.fire}>Fire</Link></li>
+    <li><Link to={ROUTES.songs}>Songs</Link></li>
   </ul>;
 
 const NavbarStyled = styled(Navbar)`

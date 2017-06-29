@@ -3,6 +3,6 @@ export const API = {
 };
 
 export const ROUTES = {
-  fire: '/fire',
+  songs: '/songs',
   home: '/',
 };
