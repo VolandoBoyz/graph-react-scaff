@@ -2,29 +2,36 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import ApolloClient from 'apollo-client';
+import { ApolloProvider } from 'react-apollo';
+
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route,
   Switch,
 } from 'react-router-dom';
 
 import 'normalize.css';
 import { ROUTES } from './settings';
+import Navbar from './components/Navbar';
 import Home from './routes/home';
 import Fire from './routes/fire';
-import Navbar from './components/Navbar';
+
+const client = new ApolloClient({});
 
 const App = props =>
-  <Router>
-    <div className={`${props.className} app-container`}>
-      <Navbar />
-      <Switch>
-        <Route exact path={ROUTES.home} component={Home} />
-        <Route path={ROUTES.fire} component={Fire} />
-        <Route component={Home} />
-      </Switch>
-    </div>
-  </Router>;
+  <ApolloProvider client={client}>
+    <BrowserRouter>
+      <div className={`${props.className} app-container`}>
+        <Navbar />
+        <Switch>
+          <Route path={ROUTES.fire} component={Fire} />
+          <Route component={Home} />
+        </Switch>
+      </div>
+    </BrowserRouter>
+  </ApolloProvider>
+  ;
 
 const AppStyled = styled(App)`
   font-family: helvetica;

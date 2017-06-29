@@ -1,6 +1,6 @@
 webpackJsonp([1],{
 
-/***/ 502:
+/***/ 318:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12,15 +12,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _templateObject = _taggedTemplateLiteral(['\n  height: 100%\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n  h2{\n    font-size: 50px;\n  }\n  a {\n    text-decoration: none;\n    color: #007AFF;\n  }\n'], ['\n  height: 100%\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n  h2{\n    font-size: 50px;\n  }\n  a {\n    text-decoration: none;\n    color: #007AFF;\n  }\n']);
 
-var _react = __webpack_require__(2);
+var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _styledComponents = __webpack_require__(32);
+var _styledComponents = __webpack_require__(39);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(6);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -35,17 +35,12 @@ var Home = function Home(props) {
     _react2.default.createElement(
       'h1',
       null,
-      'Welcome to react-redux-hot'
+      'Welcome to GraphQL-React Scaffolding'
     ),
     _react2.default.createElement(
       'h2',
       null,
       '\uD83E\uDD18\uD83C\uDFFB'
-    ),
-    _react2.default.createElement(
-      'a',
-      { href: 'https://github.com/Influencity/react-redux-hot' },
-      'View souce code'
     )
   );
 };
