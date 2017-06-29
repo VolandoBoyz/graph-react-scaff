@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import ApolloClient from 'apollo-client';
+import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 
 import {
@@ -17,7 +17,13 @@ import Navbar from './components/Navbar';
 import Home from './routes/home';
 import Fire from './routes/fire';
 
-const client = new ApolloClient({});
+const networkInterface = createNetworkInterface({
+  uri: 'http://localhost:4000/graphql',
+});
+
+const client = new ApolloClient({
+  networkInterface,
+});
 
 const App = props =>
   <ApolloProvider client={client}>
