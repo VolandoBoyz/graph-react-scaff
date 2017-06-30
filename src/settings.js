@@ -5,4 +5,5 @@ export const API = {
 export const ROUTES = {
   songs: '/songs',
   home: '/',
+  new: '/new',
 };
