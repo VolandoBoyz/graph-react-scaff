@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 
+import { ROUTES } from '../../../settings';
 import { addSong, getSongs } from '../../../queries';
 
 
@@ -18,7 +19,8 @@ class NewSong extends Component {
       variables: {
         title: this.state.term,
       },
-    });
+      refetchQueries: [{ query: getSongs }],
+    }).then(() => this.props.history.push(ROUTES.songs));
     e.preventDefault();
   }
   render() {
