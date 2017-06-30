@@ -11,8 +11,11 @@ class SongsList extends Component {
       variables: {
         id,
       },
-      refetchQueries: [{ query: getSongs }],
-    });
+     // refetchQueries: [{ query: getSongs }],
+    })
+    // Can use data.refetch if the refetch query is already in the component
+      .then(() => this.props.data.refetch())
+    ;
   }
 
   renderSongs() {
