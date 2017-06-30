@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
+import { Link } from 'react-router-dom';
 
 import { getSongs, deleteSong } from '../../../queries';
 
@@ -21,7 +22,9 @@ class SongsList extends Component {
   renderSongs() {
     return this.props.data.songs.map(song =>
       <li key={song.id}>
-        {song.title}
+        <Link to={`${this.props.match.url}/${song.id}`}>
+          {song.title}
+        </Link>
         <button onClick={() => this.deleteSong(song.id)}>Delete</button>
       </li>);
   }
@@ -56,6 +59,7 @@ SongsList.propTypes = {
   className: PropTypes.string.isRequired,
   data: PropTypes.object.isRequired,
   mutate: PropTypes.func.isRequired,
+  match: PropTypes.object.isRequired,
 };
 
 
