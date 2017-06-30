@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
+
+import { getSongs } from '../../../queries';
 
 class SongsList extends Component {
   renderSongs() {
@@ -40,14 +41,5 @@ SongsList.propTypes = {
   data: PropTypes.object.isRequired,
 };
 
-const query = gql`
-  query getAllSongs{
-    songs{
-      title
-      id
-    }
-  }
-`;
 
-
-export default graphql(query)(SongsListStyled);
+export default graphql(getSongs)(SongsListStyled);

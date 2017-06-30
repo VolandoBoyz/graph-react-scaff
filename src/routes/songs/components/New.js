@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
+
+import { addSong, getSongs } from '../../../queries';
+
 
 class NewSong extends Component {
   constructor(props) {
@@ -51,14 +53,5 @@ NewSong.propTypes = {
   mutate: PropTypes.func.isRequired,
 };
 
-const mutation = gql`
-mutation AddSong($title: String) {
-  addSong(title: $title) {
-    title
-    id
-  }
-}
- `;
 
-
-export default graphql(mutation)(NewSongStyled);
+export default graphql(addSong)(NewSongStyled);
