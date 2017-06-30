@@ -53,6 +53,7 @@ const NewSongStyled = styled(NewSong)`
 NewSong.propTypes = {
   className: PropTypes.string.isRequired,
   mutate: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 

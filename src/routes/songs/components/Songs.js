@@ -3,11 +3,24 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 
-import { getSongs } from '../../../queries';
+import { getSongs, deleteSong } from '../../../queries';
 
 class SongsList extends Component {
+  deleteSong(id) {
+    this.props.mutate({
+      variables: {
+        id,
+      },
+      refetchQueries: [{ query: getSongs }],
+    });
+  }
+
   renderSongs() {
-    return this.props.data.songs.map(song => <li key={song.id}>{song.title}</li>);
+    return this.props.data.songs.map(song =>
+      <li key={song.id}>
+        {song.title}
+        <button onClick={() => this.deleteSong(song.id)}>Delete</button>
+      </li>);
   }
   render() {
     if (this.props.data.loading) return <span>loading</span>;
@@ -39,7 +52,10 @@ const SongsListStyled = styled(SongsList)`
 SongsList.propTypes = {
   className: PropTypes.string.isRequired,
   data: PropTypes.object.isRequired,
+  mutate: PropTypes.func.isRequired,
 };
 
 
-export default graphql(getSongs)(SongsListStyled);
+export default graphql(getSongs)(
+  graphql(deleteSong)(SongsListStyled)
+);
